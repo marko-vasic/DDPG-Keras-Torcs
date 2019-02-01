@@ -64,8 +64,10 @@ def playGame(train_indicator=0):    #1 means Train, 0 means simply Run
         actor.target_model.load_weights("actormodel.h5")
         critic.target_model.load_weights("criticmodel.h5")
         print("Weight load successfully")
-    except:
+    except Exception as e:
         print("Cannot find the weight")
+        print(e)
+        quit()
 
     print("TORCS Experiment Start.")
     for i in range(episode_count):
